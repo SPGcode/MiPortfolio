@@ -1,0 +1,45 @@
+<section id="contact" class="site-section section-form text-center">
+    <div class="container">
+
+        <h3>Contacto</h3>
+        <p><small>
+            Si tienes alguna duda, idea o propuesta de colaboración, ¡contacta conmigo!
+        </small></p>
+        <img src="assets/img/lines.svg" class="img-lines" alt="lines">
+        <form [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <input type="text" formControlName="name" class="form-control mt-x-0" placeholder="Nombre" required>
+                <div class="alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <div class="container-error-message">
+                        El nombre es requerido
+                    </div>
+                </div>
+                </div>
+                <div class="col-sm-6">
+                    <input type="email" formControlName="email" class="form-control" placeholder="Email" required>
+                    <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div class="container-error-message" *ngIf="email.dirty">
+                            El email es requerido
+                        </div>
+                        <div class="container-error-message" *ngIf="email.invalid">
+                            El email es invalido
+                        </div>
+                    </div>   
+                </div>
+                <div class="col-sm-12">
+                    <textarea formControlName="message" id="mesaage" class="form-control" placeholder="Mensaje" required></textarea>
+                    <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div class="container-error-message" *ngIf="email.dirty">
+                            El email es requerido
+                        </div>
+                        <div class="container-error-message" *ngIf="email.invalid">
+                            El email es invalido
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-border" type="submit">Enviar <span class="glyphicon glyphicon-send"></span></button>
+        </form>
+    </div>
+</section><!-- /.section-form -->
